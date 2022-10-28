@@ -1,0 +1,10 @@
+image: maven:3.6.3-openjdk-15
+cache:
+  paths:
+    - .m2/repository
+.verify: &verify
+  stage: test
+  script:
+    - 'mvn $MAVEN_CLI_OPTS verify'
+verify:openjdk11:
+  <<: *verify
